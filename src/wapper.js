@@ -18,7 +18,7 @@ export function buscarPessoas(botao) {
         container.innerHTML = ' <p>carregando...</p>'
         try {
             const data = await getPessoas()
-            renderizarPessoas(container, data.results)
+            renderizarPessoas(container, data)
         } catch (error) {
             container.innerHTML = '<p>Erro ao buscar personagens. Por favor, tente novamente.</p>'
         }
@@ -33,7 +33,7 @@ export function buscarNave(botao) {
         container.innerHTML = ' <p>carregando...</p>'
         try {
             const data = await getNave()
-            renderizarNaves(container, data.results)
+            renderizarNaves(container, data)
         } catch (error) {
             container.innerHTML = '<p>Erro ao buscar naves. Por favor, tente novamente.</p>'
         }
@@ -46,7 +46,7 @@ export function buscarPlaneta(botao) {
         container.innerHTML = ' <p>carregando...</p>' 
         try {
             const data = await getPlaneta()
-            renderizarPlanetas(container, data.results)
+            renderizarPlanetas(container, data)
         } catch (error) {
             container.innerHTML = '<p>Erro ao buscar planetas. Por favor, tente novamente.</p>'
         }

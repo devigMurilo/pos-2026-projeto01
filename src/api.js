@@ -1,4 +1,4 @@
- const api = 'https://swapi.dev/api/'
+ const api = "https://swapi.info/api/"
 
  export async function getPessoas() {
     try {
