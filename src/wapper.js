@@ -1,11 +1,24 @@
 import { getPessoas, getNave, getPlaneta } from './api.js'
 
+async function TraduzirUrl(urls) {
+    const resposta = await Promise.all(
+        urls.map(url => fetch(url).then(res => res.json()))
+    )
+    return resposta.map(item => item.title || item.name)
+    }
 
-function renderizarPessoas(container, pessoas, naves) {
-    const starships = pessoas.map((pessoa) => pessoa.starships).flat()
+async function renderizarPessoas(container, pessoas,) {
+    const pessoasComFilmes = await Promise.all(
+        cost filmes = await buscarNomes(pessoa.films)
+
+        return{
+            ...pessoa,
+            filmes
+        }
+    )
     container.innerHTML = pessoas.map((pessoa) => 
     `<p> nome: ${pessoa.name}
-    <p> filmes: ${pessoa.films}</p>
+    <p> filmes: ${pessoa.films.join(',')}</p>
     <p> nave: ${pessoa.starships} </p>
     ---------
     </p>`).join('')
