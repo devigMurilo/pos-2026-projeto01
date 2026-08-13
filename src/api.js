@@ -50,7 +50,7 @@ export async function getPlaneta() {
 
 export async function getPeopleStarships() {
     try {
-        const response = await fetch(`${api}people/{name: , birth_year: , eye_color: , gender: , hair_color: , height: , mass: , skin_color:, starships:[]}/`)
+        const response = await fetch(`${api}people/`)
         if (!response.ok) {
             throw new Error('Erro na requisição')
         }
