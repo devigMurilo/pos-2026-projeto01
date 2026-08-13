@@ -4,7 +4,7 @@ import { getPessoas, getNave, getPlaneta } from './api.js'
 function renderizarPessoas(container, pessoas, naves) {
     const starships = pessoas.map((pessoa) => pessoa.starships).flat()
     container.innerHTML = pessoas.map((pessoa) => 
-     `<p> nome: ${pessoa.name}
+    `<p> nome: ${pessoa.name}
     <p> filmes: ${pessoa.films}</p>
     <p> nave: ${pessoa.starships} </p>
     ---------
