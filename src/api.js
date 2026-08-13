@@ -1,4 +1,4 @@
- const api = 'https://swapi.dev/api/'
+ const api = 'https://swapi.info/api/'
 
  export async function getPessoas() {
     try {
@@ -22,9 +22,10 @@ export async function getNave() {
         if (!response.ok) {
             throw new Error('Erro na requisição')
         }
-
+        
         const data = await response.json()
         return data
+
     } catch (error) {
         console.error('Erro ao buscar naves:', error)
         throw error
@@ -46,3 +47,19 @@ export async function getPlaneta() {
         throw error 
         }
 };
+
+export async function getPeopleStarships() {
+    try {
+        const response = await fetch(`${api}people/{name: , birth_year: , eye_color: , gender: , hair_color: , height: , mass: , skin_color:, starships:[]}/`)
+        if (!response.ok) {
+            throw new Error('Erro na requisição')
+        }
+
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error('Erro ao buscar pessoas:', error)
+        throw error 
+        }
+};
+
