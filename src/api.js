@@ -1,65 +1,33 @@
- const api = 'https://swapi.info/api/'
+const api = 'https://dragonball-api.com/api/'
 
- export async function getPessoas() {
-    try {
-        const response = await fetch(`${api}people/`)
+export async function getCharacters(limit = 100) {
+  try {
+    const response = await fetch(`${api}characters?limit=${limit}`)
 
-        if (!response.ok) {
-            throw new Error('Erro na requisição')
-        }
-
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.error('Erro ao buscar pessoas:', error)
-        throw error 
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar personagens: ${response.status}`)
     }
+
+    const data = await response.json()
+    return data.items
+  } catch (error) {
+    console.error('Erro ao buscar personagens:', error)
+    throw error
+  }
 }
 
-export async function getNave() {
-    try {
-        const response = await fetch(`${api}starships/`)
-        if (!response.ok) {
-            throw new Error('Erro na requisição')
-        }
-        
-        const data = await response.json()
-        return data
+export async function getCharacterById(id) {
+  try {
+    const response = await fetch(`${api}characters/${id}`)
 
-    } catch (error) {
-        console.error('Erro ao buscar naves:', error)
-        throw error
+    if (!response.ok) {
+      throw new Error(`Erro ao buscar personagem: ${response.status}`)
     }
+
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('Erro ao buscar personagem:', error)
+    throw error
+  }
 }
-
-export async function getPlaneta() {
-    try {
-        const response = await fetch(`${api}planets/`)
-
-        if (!response.ok) {
-            throw new Error('Erro na requisição')
-        }    
-
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.error('Erro ao buscar planeta:', error)
-        throw error 
-        }
-};
-
-export async function getPeopleStarships() {
-    try {
-        const response = await fetch(`${api}people/`)
-        if (!response.ok) {
-            throw new Error('Erro na requisição')
-        }
-
-        const data = await response.json()
-        return data
-    } catch (error) {
-        console.error('Erro ao buscar pessoas:', error)
-        throw error 
-        }
-};
-
