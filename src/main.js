@@ -5,7 +5,7 @@ document.querySelector('#app').innerHTML = `
 <section id="center">
   <div class="hero">
     <h1>Dragon Ball Z</h1>
-    <p>DBZ about personagens</p>
+    <p>DBZ sobre os personagens</p>
   </div>
   <label for="people">Escolha um personagem:</label>
   <select class="select" id="people" name="people">
